@@ -1,13 +1,21 @@
 package com.cleyton.vacina.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+@Entity
 @Getter
 @Setter
 @AllArgsConstructor
@@ -15,11 +23,19 @@ import lombok.Setter;
 public class FabricanteVacina implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	Integer id;
-	String descricao;
-	String lote;
-	String validade;
-	Integer quantidade;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	private String descricao;
+	private String lote;
+	private String validade;
+	private Integer quantidade;
+	
+	@OneToMany(mappedBy = "vacina")
+	private List<Vacinacao> vacinacaoVacina = new ArrayList<>();
+	
+	
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);

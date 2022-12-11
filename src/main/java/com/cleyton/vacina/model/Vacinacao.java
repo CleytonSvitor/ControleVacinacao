@@ -1,22 +1,80 @@
 package com.cleyton.vacina.model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.util.Objects;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+@Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Vacinacao implements Serializable{
-
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private LocalDate data_aplicacao;
-	private Integer dose;
-	private Endereco local;
+	@ManyToOne
+	@JoinColumn(name = "vacina_id")
+	private FabricanteVacina vacina;
+	@ManyToOne
+	@JoinColumn(name = "paciente_id")
+	private Paciente paciente;
+	@ManyToOne
+	@JoinColumn(name = "profissionlDaSaude_id")
+	private ProfissionalDaSaude profissionlDaSaude;
 	
-	private List<FabricanteVacina> vacina = new ArrayList<>();
-	private List<ProficionalDaSaude> ps = new ArrayList<>();
-	private List<Paciente> paciente  = new ArrayList<>();
+	@JsonFormat(pattern = "dd/MM/yyyy")
+	private LocalDateTime data_aplicacao;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_endereco")
+	private Endereco local;
+	private Integer dose;
+	
+	
+	
+	
+	
+	
+	
+	
+//	private List<FabricanteVacina> vacina = new ArrayList<>();
+//	private List<ProficionalDaSaude> ps = new ArrayList<>();
+//	private List<Paciente> paciente  = new ArrayList<>();
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Vacinacao other = (Vacinacao) obj;
+		return Objects.equals(id, other.id);
+	}
 	
 
+	
 }

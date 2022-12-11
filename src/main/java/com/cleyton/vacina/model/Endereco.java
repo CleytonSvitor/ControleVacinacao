@@ -3,11 +3,17 @@ package com.cleyton.vacina.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
 @AllArgsConstructor
@@ -16,16 +22,17 @@ import lombok.Setter;
 public class Endereco implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	Integer id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer id_endereco;
 	String rua;
 	String cidade;
 	String estado;
 	String cep;
 	String comentario;
-	
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(id_endereco);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -36,8 +43,10 @@ public class Endereco implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Endereco other = (Endereco) obj;
-		return Objects.equals(id, other.id);
+		return Objects.equals(id_endereco, other.id_endereco);
 	}
+	
+
 	
 	
 }
