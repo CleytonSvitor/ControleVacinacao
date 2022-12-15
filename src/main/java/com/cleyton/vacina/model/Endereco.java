@@ -24,12 +24,12 @@ public class Endereco implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer id;
-	String rua;
-	String cidade;
-	String estado;
-	String cep;
-	String comentario;
+	private Integer id;
+	private String rua;
+	private String cidade;
+	private String estado;
+	private String cep;
+	private String comentario;
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
