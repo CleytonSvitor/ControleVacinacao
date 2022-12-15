@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,7 +25,7 @@ public class Paciente extends Pessoa implements Serializable {
 
 	Integer qtdDoses;
 	boolean imunizacaoCompleta;
-
+	@JsonIgnore
 	@OneToMany(mappedBy = "paciente")
 	private List<Vacinacao> vacinacaoPaciente = new ArrayList<>();
 
