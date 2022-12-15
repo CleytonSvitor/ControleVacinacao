@@ -43,21 +43,11 @@ public class Vacinacao implements Serializable{
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDateTime data_aplicacao;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_endereco")
+	@OneToOne
+	@JoinColumn(name = "endereco_id")
 	private Endereco local;
 	private Integer dose;
 	
-	
-	
-	
-	
-	
-	
-	
-//	private List<FabricanteVacina> vacina = new ArrayList<>();
-//	private List<ProficionalDaSaude> ps = new ArrayList<>();
-//	private List<Paciente> paciente  = new ArrayList<>();
 	
 	@Override
 	public int hashCode() {

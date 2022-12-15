@@ -3,7 +3,6 @@ package com.cleyton.vacina.model;
 import java.io.Serializable;
 import java.util.Objects;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,8 +32,8 @@ public abstract class Pessoa implements Serializable{
 	String email;
 	String Contato;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_endereco")
+	@OneToOne
+	@JoinColumn(name = "endereco_id")
 	Endereco endereco;
 	
 	

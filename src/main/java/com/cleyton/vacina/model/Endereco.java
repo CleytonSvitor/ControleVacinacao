@@ -24,7 +24,7 @@ public class Endereco implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer id_endereco;
+	Integer id;
 	String rua;
 	String cidade;
 	String estado;
@@ -32,7 +32,7 @@ public class Endereco implements Serializable{
 	String comentario;
 	@Override
 	public int hashCode() {
-		return Objects.hash(id_endereco);
+		return Objects.hash(id);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -43,7 +43,7 @@ public class Endereco implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Endereco other = (Endereco) obj;
-		return Objects.equals(id_endereco, other.id_endereco);
+		return Objects.equals(id, other.id);
 	}
 	
 

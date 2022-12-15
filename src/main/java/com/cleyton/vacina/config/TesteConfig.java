@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import com.cleyton.vacina.service.DBService;
+
 
 
 @Configuration
@@ -12,10 +14,10 @@ import org.springframework.context.annotation.Profile;
 public class TesteConfig {
 
 	@Autowired
-	//private DBService dbService;
+	private DBService dbService;
 
 	@Bean
 	public void instanciaBD() {
-		//dbService.instanciaDB();
+		dbService.instanciaDB();
 	}
 }

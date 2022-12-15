@@ -11,14 +11,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class FabricanteVacina implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -34,6 +32,21 @@ public class FabricanteVacina implements Serializable{
 	@OneToMany(mappedBy = "vacina")
 	private List<Vacinacao> vacinacaoVacina = new ArrayList<>();
 	
+	public FabricanteVacina(Integer id, String descricao, String lote, String validade, Integer quantidade,
+			Vacinacao vacinacaoVacina) {
+		super();
+		this.id = id;
+		this.descricao = descricao;
+		this.lote = lote;
+		this.validade = validade;
+		this.quantidade = quantidade;
+		this.vacinacaoVacina.add(vacinacaoVacina);
+	}
+	
+	
+	public void setVacinacaoVacina(Vacinacao vacinacaoVacina) {
+		this.vacinacaoVacina.add(vacinacaoVacina);
+	}
 	
 	
 	@Override
@@ -51,6 +64,11 @@ public class FabricanteVacina implements Serializable{
 		FabricanteVacina other = (FabricanteVacina) obj;
 		return Objects.equals(id, other.id);
 	}
+
+
+
+	
+	
 	
 
 }
