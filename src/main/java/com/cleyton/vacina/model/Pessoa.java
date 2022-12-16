@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,6 +30,7 @@ public abstract class Pessoa implements Serializable{
 	Integer id;
 	String nome;
 	String sobreNome;
+	@CPF
 	String CPF;
 	String email;
 	String Contato;

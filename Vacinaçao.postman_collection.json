@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "19152046-80b6-4dad-bafc-616900385f2a",
+		"name": "Vacinaçao",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Request Endereço",
+			"item": [
+				{
+					"name": "Buscar end por ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Listar todos os Endereços",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/enderecos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enderecos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Endereço",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rua\": \"Av. Hermes da Fonseca\",\r\n    \"cidade\": \"Natal\",\r\n    \"estado\": \"RN\",\r\n    \"cep\": \"59014-300\",\r\n    \"comentario\": \"Zona Leste \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/enderecos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enderecos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Endereço",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rua\": \"Rua dos Caicós\",\r\n    \"cidade\": \"Monte Alegre\",\r\n    \"estado\": \"RN\",\r\n    \"cep\": \"59014-300\",\r\n    \"comentario\": \"Zona Rural \"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/enderecos/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enderecos",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar endereço por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/enderecos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"enderecos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Request Paciente",
+			"item": [
+				{
+					"name": "Buscar Paciente por Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/pacientes/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pacientes",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar todos Paciente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/pacientes",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pacientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD Paciente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Mauricio\",\r\n    \"sobreNome\": \"Gurgel\",\r\n    \"cpf\": \"801.989.820-46\",\r\n    \"email\": \"gurgel@gmail.com\",\r\n    \"qtdDoses\": 0,\r\n    \"imunizacaoCompleta\": false,\r\n    \"endereco\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/pacientes",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pacientes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Request Profissional da Saúde",
+			"item": [
+				{
+					"name": "Listar Profissional Saude",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/profissionais",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"profissionais"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca Profissional Sauide por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/profissionais/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"profissionais",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Profissional Saúde",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n        \"nome\": \"Claudio\",\r\n        \"sobreNome\": \"Castro\",\r\n        \"cpf\": \"863.963.730-09\",\r\n        \"email\": \"barbosa@ig.com.br\",\r\n        \"regConselho\": \"COREM-9887\",\r\n        \"profissao\": \"Enfermeiro\",\r\n        \"endereco\": 7\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/profissionais",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"profissionais"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Folder Copy",
+			"item": []
+		}
+	]
+}
